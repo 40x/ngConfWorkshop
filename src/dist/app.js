@@ -16,6 +16,7 @@ System.register(['angular2/platform/browser', 'angular2/core', './app/contacts-a
             }],
         execute: function() {
             browser_1.bootstrap(contacts_app_1.ContactsApp, [
+                router_1.ROUTER_PROVIDERS,
                 core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })
             ]);
         }

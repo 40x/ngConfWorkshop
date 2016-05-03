@@ -35,7 +35,7 @@ export class ContactsService {
 
   updateContact(c: Contact): Observable<Contact> {
     let headers = new Headers({'Content-Type': 'application/json;charset=UTF-8'});
-    return this._http.put('/api/contacts/' + c.id, JSON.stringify(c), headers).map(
+    return this._http.put('/api/contacts/' + c.id, JSON.stringify(c), {headers}).map(
       (resp: Response) => {
         return resp.json().item;
       }

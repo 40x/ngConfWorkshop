@@ -30,7 +30,7 @@ System.register(['angular2/core', 'angular2/router', "../contacts-service/contac
                 ContactsDetailsComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._service.getContactById(parseInt(this._routeParams.get('id'), 10))
-                        .then(function (contact) {
+                        .subscribe(function (contact) {
                         _this.contact = contact;
                     });
                 };

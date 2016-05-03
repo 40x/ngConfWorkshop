@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/router', "../contacts-service/contac
                 ContactEditorComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._service.getContactById(parseInt(this._routeParams.get('id'), 10))
-                        .then(function (contact) {
+                        .subscribe(function (contact) {
                         _this.contact = _this._clone.createClone(contact);
                     });
                 };
@@ -43,8 +43,12 @@ System.register(['angular2/core', 'angular2/router', "../contacts-service/contac
                     this.contact = this._clone.abortChanges();
                 };
                 ContactEditorComponent.prototype.save = function () {
+                    var _this = this;
                     this._clone.commitChanges();
-                    this._router.navigate(['/Contact-Details', { id: this.contact.id }]);
+                    this._service.updateContact(this.contact).subscribe(function (contact) {
+                        _this.contact = contact;
+                        _this._router.navigate(['/Contact-Details', { id: _this.contact.id }]);
+                    });
                 };
                 ContactEditorComponent = __decorate([
                     core_1.Component({

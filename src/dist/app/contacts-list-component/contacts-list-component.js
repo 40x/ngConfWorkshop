@@ -30,10 +30,7 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', '../cont
                     this._service = _service;
                 }
                 ContactsListComponent.prototype.getContacts = function () {
-                    var _this = this;
-                    this._service.getContacts().then(function (newContacts) {
-                        _this.contacts = newContacts;
-                    });
+                    this.contacts = this._service.getContacts();
                 };
                 ContactsListComponent.prototype.ngOnInit = function () {
                     this.getContacts();

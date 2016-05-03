@@ -1,4 +1,4 @@
-System.register(['angular2/core', './contact-header-component/contact-header-component', './contacts-service/contacts-service', './clone-service/clone-service', 'angular2/router', './contacts-list-component/contacts-list-component', './contacts-details-component/contacts-details-component', './contact-editor-component/contact-editor-component'], function(exports_1) {
+System.register(['angular2/core', './contact-header-component/contact-header-component', './contacts-service/contacts-service', './clone-service/clone-service', 'angular2/router', './contacts-list-component/contacts-list-component', './contacts-details-component/contacts-details-component', './contact-editor-component/contact-editor-component', 'angular2/http'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './contact-header-component/contact-header-com
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contact_header_component_1, contacts_service_1, clone_service_1, router_1, contacts_list_component_1, contacts_details_component_1, contact_editor_component_1;
+    var core_1, contact_header_component_1, contacts_service_1, clone_service_1, router_1, contacts_list_component_1, contacts_details_component_1, contact_editor_component_1, http_1;
     var ContactsApp;
     return {
         setters:[
@@ -35,6 +35,9 @@ System.register(['angular2/core', './contact-header-component/contact-header-com
             },
             function (contact_editor_component_1_1) {
                 contact_editor_component_1 = contact_editor_component_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             ContactsApp = (function () {
@@ -46,7 +49,7 @@ System.register(['angular2/core', './contact-header-component/contact-header-com
                         template: "\n      <contact-header-component></contact-header-component>\n      <router-outlet></router-outlet>\n  ",
                         directives: [contact_header_component_1.ContactHeaderComponent, contacts_list_component_1.ContactsListComponent, router_1.ROUTER_DIRECTIVES],
                         styleUrls: ['app/contacts-app.css'],
-                        providers: [contacts_service_1.ContactsService, router_1.ROUTER_PROVIDERS, clone_service_1.CloneService]
+                        providers: [contacts_service_1.ContactsService, router_1.ROUTER_PROVIDERS, clone_service_1.CloneService, http_1.HTTP_PROVIDERS]
                     }),
                     router_1.RouteConfig([
                         {
